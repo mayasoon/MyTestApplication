@@ -78,17 +78,35 @@ public class LauncherViewGroup extends ViewGroup {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         return super.dispatchTouchEvent(ev);
     }
-
+    float x = 0f;
+    float y = 0f;
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercepted = false;
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                x = ev.getX();
+                y = ev.getY();
                 downX = ev.getRawX();
                 Log.w("jing"," onInterceptTouchEvent downX  "+downX);
                 lastX = downX;
+                intercepted = false;
+                break;
+            case MotionEvent.ACTION_MOVE://解决滑动冲突
+                float mx = ev.getX();
+                float my = ev.getY();
+                //左右滑动需要这个事件，交由自身处理
+                intercepted = Math.abs(mx - x) > Math.abs(my - y);
+                x = mx;
+                y = my;
+                break;
+            case MotionEvent.ACTION_UP:
+                intercepted = false;
+                break;
+            default:
                 break;
         }
-        return true;
+        return intercepted;
     }
 
 

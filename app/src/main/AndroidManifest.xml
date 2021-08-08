@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTestApplication">
         <activity
-            android:name=".LauncherActivity"
+            android:name=".MyViewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,17 +19,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ScrollerActivity"
+            android:name=".ScrollViewActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".TouchActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ScrollerActivity"
+            android:exported="true" />
         <activity
             android:name=".ThreadTest"
             android:exported="true" />
         <activity
             android:name=".HandlerThreadActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity android:name=".MainActivity" />
     </application>
 
