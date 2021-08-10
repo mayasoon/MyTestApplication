@@ -19,6 +19,5 @@ public class MyViewActivity extends AppCompatActivity {
         //
 //        PendingIntent
 
-
     }
 }
